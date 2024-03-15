@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>proyectoWeb</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <main>
+
+        <div class="wallp"><img src="/storage/img/wallpcor.png"></div>
+
+        <header>
+            <section class="leftpart">
+                <h1>CampusShop</h1>
+    
+                <div class="selector">
+                    <button id="btnProductos"><i class='bx bx-purchase-tag'></i> Todos los productos</button>
+                    <button id="btnAbrigos"><img class = "jacket" src="storage/img/jacket.webp"> Abrigos</button>
+                    <button id="btnCamisetas"><i class='bx bxs-t-shirt' ></i> Camisetas</button>
+                    <button id="btnPantalones"><img class = "pants" src="storage/img/pants.png"> Pantalones</button>
+                    <button id="btnCarrito">
+                        <i class='bx bx-cart-alt'></i> Carrito <p class="cantidadcarrito">0</p>
+                    </button> 
+                </div>
+    
+                <div class="credits">
+                    <p><i class='bx bx-copyright'></i> 2023 Camper</p>
+                </div>
+            </section>
+    
+            <button class="menuopen" onclick="change()">
+                <i class='bx bx-menu'></i>
+            </button>
+
+            <div class="menucel" id="menucel">
+                <a id="celProductos">Productos</a>
+                <a id="celAbrigos">Abrigos</a>
+                <a id="celCamisetas">Camisetas</a>
+                <a id="celPantalones">Pantalones</a>
+                <a id="celCarrito">Carrito</a>
+            </div>
+        </header>
+
+        <section class="mainpart">
+            <h1 class="titulomain">Todos los productos</h1>
+            <div class="cardzone">
+                <div class="card camisetas">
+                    <img src="./storage/img/defaultshirt.png">
+                    <div class="description">
+                        <div class="principal">
+                            <p>Camiseta Negra Basica</p>
+                            <p>$15.000</p>
+                        </div>
+                        <button class="agregar">Agregar</button>
+                    </div>
+                </div>
+                <div class="card abrigos">
+                    <img src="./storage/img/abrigo1-removebg-preview.png">
+                    <div class="description">
+                        <div class="principal">
+                            <p>Abrigo Negro para dama</p>
+                            <p>$153.000</p>
+                        </div>
+                        <button class="agregar">Agregar</button>
+                    </div>
+                </div>
+                <div class="card abrigos">
+                    <img src="./storage/img/abrigo2-removebg-preview.png">
+                    <div class="description">
+                        <div class="principal">
+                            <p>Abrigo Negro para hombre</p>
+                            <p>$153.000</p>
+                        </div>
+                        <button class="agregar">Agregar</button>
+                    </div>
+                </div>
+                <div class="card abrigos">
+                    <img src="./storage/img/abrigo3-removebg-preview (1).png">
+                    <div class="description">
+                        <div class="principal">
+                            <p>Abrigo candela Caballero</p>
+                            <p>$250.000</p>
+                        </div>
+                        <button class="agregar">Agregar</button>
+                    </div>
+                </div>
+                <div class="card abrigos">
+                    <img src="./storage/img/abrigo5-removebg-preview.png">
+                    <div class="description">
+                        <div class="principal">
+                            <p>Abrigo Beije para dama</p>
+                            <p>$200.000</p>
+                        </div>
+                        <button class="agregar">Agregar</button>
+                    </div>
+                </div>
+                <div class="card camisetas">
+                    <img src="./storage/img/activeshotershirt-removebg-preview.png">
+                    <div class="description">
+                        <div class="principal">
+                            <p>Camiseta Active Shooter</p>
+                            <p>$32.000</p>
+                        </div>
+                        <button class="agregar">Agregar</button>
+                    </div>
+                </div>
+                <div class="card camisetas">
+                    <img src="./storage/img/hasbullashirt-removebg-preview.png">
+                    <div class="description">
+                        <div class="principal">
+                            <p>Camiseta Hasbullah</p>
+                            <p>$50.000</p>
+                        </div>
+                        <button class="agregar">Agregar</button>
+                    </div>
+                </div>
+                <div class="card camisetas">
+                    <img src="./storage/img/ieatkidsshirt-removebg-preview.png">
+                    <div class="description">
+                        <div class="principal">
+                            <p>Camiseta i eat kids</p>
+                            <p>$40.000</p>
+                        </div>
+                        <button class="agregar">Agregar</button>
+                    </div>
+                </div>
+                <div class="card abrigos">
+                    <img src="./storage/img/abrigo4-removebg-preview.png">
+                    <div class="description">
+                        <div class="principal">
+                            <p>Abrigo rosa para dama</p>
+                            <p>$125.000</p>
+                        </div>
+                        <button class="agregar">Agregar</button>
+                    </div>
+                </div>
+                <div class="card camisetas">
+                    <img src="./storage/img/willsmithshirt-removebg-preview.png">
+                    <div class="description">
+                        <div class="principal">
+                            <p>Camiseta Will Smith Cartoon</p>
+                            <p>$40.000</p>
+                        </div>
+                        <button class="agregar">Agregar</button>
+                    </div>
+                </div>
+                <div class="card camisetas">
+                    <img src="./storage/img/robloxshirt.png">
+                    <div class="description">
+                        <div class="principal">
+                            <p>Camiseta Gucci</p>
+                            <p>$1.370.000</p>
+                        </div>
+                        <button class="agregar">Agregar</button>
+                    </div>
+                </div>
+                <div class="card pantalones">
+                    <img src="./storage/img/pinkpants-removebg-preview.png">
+                    <div class="description">
+                        <div class="principal">
+                            <p>Pantalones rosados dama</p>
+                            <p>$200.000</p>
+                        </div>
+                        <button class="agregar">Agregar</button>
+                    </div>
+                </div>
+                <div class="card pantalones">
+                    <img src="./storage/img/superbaggypants-removebg-preview.png">
+                    <div class="description">
+                        <div class="principal">
+                            <p>Pantalones SuperBaggy</p>
+                            <p>$310.000</p>
+                        </div>
+                        <button class="agregar">Agregar</button>
+                    </div>
+                </div>
+                <div class="card pantalones">
+                    <img src="./storage/img/jeanpants-removebg-preview.png">
+                    <div class="description">
+                        <div class="principal">
+                            <p>Jeans Basicos</p>
+                            <p>$85.000</p>
+                        </div>
+                        <button class="agregar">Agregar</button>
+                    </div>
+                </div>
+                <div class="card pantalones">
+                    <img src="./storage/img/brownpants-removebg-preview.png">
+                    <div class="description">
+                        <div class="principal">
+                            <p>Pantalones Café</p>
+                            <p>$70.000</p>
+                        </div>
+                        <button class="agregar">Agregar</button>
+                    </div>
+                </div>
+                <div class="card pantalones">
+                    <img src="./storage/img/robloxpants.png">
+                    <div class="description">
+                        <div class="principal">
+                            <p>Pantalones sencillos</p>
+                            <p>$129.000</p>
+                        </div>
+                        <button class="agregar">Agregar</button>
+                    </div>
+                </div>
+
+                <div class="carrito producto">
+                    <img src="./storage/img/defaultshirt.png">
+                    <div class="description">
+                        <div class="principal">
+                            <p>Nombre</p>
+                            <p class="nombre">NOMBRE PLACEHOLDER</p>
+                        </div>
+                        
+                        <div class="cantidad">
+                            <p>Cantidad</p>
+                            <p>CANTIDAD PLACEHOLDER</p>
+                        </div>
+
+                        <div class="precio">
+                            <p>Precio</p>
+                            <p>PRECIO PLACEHOLDER</p>
+                        </div>
+
+                        <div class="subtotal">
+                            <p>Subtotal</p>
+                            <p>SUBTOTAL PLACEHOLDER</p>
+                        </div>
+
+                        <div class="eliminar">
+                            <i class='bx bx-x'></i>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="carritopciones">
+                    <button class="vaciarcarrito">
+                        <p>Vaciar Carrito</p>
+                    </button>
+                    <div class="totalcarrito">
+                        <p>Total</p>
+                        <p class="total">
+                            $TOTAL PLACEHOLDER
+                        </p>
+
+                        <div class="compra">
+                            <button class="comprar">
+                                <p>Comprar Ahora</p>
+                        </button>
+                        </div>  
+                    </div>
+                </div>
+
+            </div>
+            
+        </section>
+        
+    </main>
+    <script src="js/main.js"></script>
+</body>
+</html>
