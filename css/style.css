@@ -6,6 +6,7 @@
     margin: 0;
     padding: 0;
     font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
 }
 body {
     background-color: var(--color-secundario);
@@ -36,8 +37,8 @@ header .headeright a{
 
 .pag1 {
     display: flex;
-    width: 100vw;
-    height: 90vh;
+    width: 100%;
+    height: 100vh;
 }
 
 
@@ -92,6 +93,202 @@ header .headeright a{
     color: var(--color-terciario);
     margin-top: 2em;
     border: none;
-    width: 8em;
+    width: 12em;
     height: 3.5vh;
+}
+
+
+
+.pag2 {
+    display: flex;
+    width: 100%;
+    height: 80vh;
+}
+
+.pag2 .container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr;
+    grid-template-areas:
+    "sizq sder"
+    ;
+    width: 80vw;
+    height: 70vh;
+    margin: auto;
+}
+
+.secondpageizq {
+    grid-area: sizq;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.secondpageder {
+    grid-area: sder;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 2em;
+}
+
+.secondpageder h2 {
+    color: var(--color-primario);
+}
+
+.secondpageizq img {
+    width: 80%;
+
+}
+
+.wespeak {
+    color: var(--color-terciario);
+    font-size: 3em;
+}
+
+.sidesc {
+    color: var(--color-terciario);
+    font-size: 1.5em;
+}
+
+.learnmore {
+    background-color: var(--color-primario);
+    color: var(--color-terciario);
+    margin-top: 2em;
+    border: none;
+    width: 12em;
+    height: 3.5vh;
+}
+
+/* Pag 3 */
+
+.pag3 {
+    display: flex;
+    width: 100%;
+    height: 80vh;
+}
+
+.pag3 .container {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: 1fr;
+    grid-template-areas:
+    "title"
+    "subtitle"
+    "options"
+    ;
+    width: 80vw;
+    height: 50vh;
+    margin: auto;
+    margin-top: 1em;
+
+}
+
+.pag3 .title{
+    color: var(--color-primario);
+    grid-area: title;
+}
+
+.pag3 .subtitle {
+    color: var(--color-terciario);
+    grid-area: subtitle;
+    height: 2em;
+    font-size: 3em;
+}
+
+.pag3 .container div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pag3 .options {
+    grid-area: options;
+    display: flex;
+}
+
+.options div {
+    margin-left: 1em;
+    background-color: var(--color-quinto);
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.options img {
+    width: 80%;
+}
+
+.options .foodtitle {
+    font-weight: bold;
+}
+
+.price {
+    color: var(--color-primario);
+}
+
+
+/* Pag 4 */
+
+.pag4 {
+    display: flex;
+    width: 100%;
+    height: 80vh;
+}
+
+.pag4 .container {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: 1fr;
+    grid-template-areas:
+    "title4"
+    "subtitle4"
+    "options4"
+    ;
+    width: 80vw;
+    height: 50vh;
+    margin: auto;
+    margin-top: 1em;
+}
+
+.pag4 .title{
+    color: var(--color-primario);
+    grid-area: title4;
+}
+
+.pag4 .subtitle {
+    color: var(--color-terciario);
+    grid-area: subtitle4;
+    height: 2em;
+    font-size: 3em;
+}
+
+.pag4 .container div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pag4 .options4 {
+    grid-area: options4;
+    display: flex;
+}
+
+.options4 div {
+    margin-left: 1em;
+    display: flex;
+    flex-direction: column;
+}
+
+.options4 img {
+    width: 80%;
+}
+
+.options4 .foodtitle {
+    color: var(--color-primario);
+}
+
+.options4 .fooddescription {
+    text-align: center;
+    color: var(--color-terciario);
 }
