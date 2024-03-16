@@ -22,6 +22,18 @@ header {
     position: fixed;
 }
 
+header h3 {
+    font-size: 2em;
+    color: var(--color-primario);
+}
+
+header .headeright a{
+    font-size: 1.2em;
+    margin-left: 1em;
+    color: var(--color-terciario);
+    text-decoration: none;
+}
+
 .pag1 {
     display: flex;
     width: 100vw;
@@ -53,8 +65,14 @@ header {
 }
 
 .stuffizq h1 {
+    color: var(--color-primario);
     display: flex;
     font-size: 5em;
+}
+
+.stuffizq p {
+    color: var(--color-terciario);
+    font-size: 1.8em;
 }
 
 .firstpageder {
@@ -65,20 +83,15 @@ header {
 }
 
 .firstpageder img {
-    width: 60%;
+    width: 80%;
 
 }
 
-
-
-header h3 {
-    font-size: 2em;
-    color: var(--color-primario);
-}
-
-header .headeright a{
-    font-size: 1.2em;
-    margin-left: 1em;
+.todaysmenu {
+    background-color: var(--color-primario);
     color: var(--color-terciario);
-    text-decoration: none;
+    margin-top: 2em;
+    border: none;
+    width: 8em;
+    height: 3.5vh;
 }
