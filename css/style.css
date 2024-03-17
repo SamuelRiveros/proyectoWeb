@@ -292,3 +292,48 @@ header .headeright a{
     text-align: center;
     color: var(--color-terciario);
 }
+
+/* Pag 5 */
+
+.pag5 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 50vh;
+}
+
+.pag5 .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80vw;
+    height: 30vh;
+    background-color: var(--color-quinto);
+}
+
+.pag5 .container h1 {
+    font-weight: normal;
+    font-size: 3em;
+}
+
+/* Pag 6 */
+
+.pag6 {
+    width: 100%;
+    height: 20vh;
+}
+
+.pag6 .container {
+    display: flex;
+    justify-content: center;
+}
+
+.pag6 .container h2,p {
+    color: var(--color-terciario);
+}
+
+.pag6 .container div {
+    margin-left: 3em;
+}
