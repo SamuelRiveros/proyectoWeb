@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>proyectoWeb</title>
+    <title>document</title>
     <link rel="stylesheet" href="css/style.css">
+    <script src="js/main.js"></script>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
@@ -12,20 +13,27 @@
         <h3>Foods</h3>
 
         <div class="headeright">
-            <a href="">Home</a>
-            <a href="">About</a>
-            <a href="">Menu</a>
-            <a href="">Service</a>
-            <a href="">Contact</a>
+            <a href="#pag1">Home</a>
+            <a href="#pag2">About</a>
+            <a href="#pag3">Menu</a>
+            <a href="#pag4">Service</a>
+            <a href="#pag5">Contact</a>
         </div>
 
-        <button class="menuopen">
+        <button class="menuopen" onclick="change()">
             <i class='bx bx-menu'></i>
         </button>
     </header>
 
     <main>
-        <section class="pag1">
+        <section class="pag1" id="pag1">
+            <div class="menucel" id="menucel">
+                <p>Home</p>
+                <p>About</p>
+                <p>Menu</p>
+                <p>Service</p>
+                <p>Contact</p>
+            </div>
             <div class="container">
                 <div class="firstpageizq">
                     <article class="stuffizq">
@@ -43,7 +51,7 @@
 
         </section>
 
-        <section class="pag2">
+        <section class="pag2" id="pag2">
             <div class="container">
                 <div class="secondpageizq">
                     <img src="storage/img/about.png">
@@ -61,7 +69,7 @@
             </div>
         </section>
 
-        <section class="pag3">
+        <section class="pag3" id="pag3">
             <div class="container">
                 <div class="title">
                     <h2>Food Menu</h2>
@@ -92,7 +100,7 @@
             </div>
         </section>
 
-        <section class="pag4">
+        <section class="pag4" id="pag4">
             <div class="container">
                 <div class="title">
                     <h2>Services</h2>
@@ -126,7 +134,7 @@
             </div>
         </section>
 
-        <section class="pag5">
+        <section class="pag5" id="pag5">
             <div class="container">
                 <h1>We Make Quality Food</h1>
                 <h1>Everyday</h1>
@@ -135,7 +143,7 @@
         </section>
     </main>
 
-    <footer class="pag6">
+    <footer class="pag6" id="pag6">
         <div class="container">
             <div class="menulinks">
                 <h2>Menu Links</h2>
