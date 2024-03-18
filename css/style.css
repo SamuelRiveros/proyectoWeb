@@ -346,13 +346,20 @@ header .menuopen {
     background-color: var(--color-primario);
 }
 
+.pag6 .contact p{
+    font-size: 30px;
+}
+
 /* Telefonos Responsive */
 
 @media (width<=700px) {
 
+    * {
+        font-size: 10px;
+    }
+
     body {
         text-align: center;
-        font-size: 0.8em;
     }
     .headeright {
         display: none;
@@ -429,5 +436,9 @@ header .menuopen {
         flex-direction: column;
         gap: 15vw;
         padding-bottom: 10vw;
+    }
+
+    .pag6 .contact p{
+        font-size: 30px;
     }
 }
