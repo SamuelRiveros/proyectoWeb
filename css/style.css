@@ -35,6 +35,12 @@ header .headeright a{
     text-decoration: none;
 }
 
+header .menuopen {
+    display: none;
+}
+
+/* Pag1 */
+
 .pag1 {
     display: flex;
     width: 100%;
@@ -44,7 +50,7 @@ header .headeright a{
 
 .pag1 .container {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr, 1fr;
     grid-template-rows: 1fr;
     grid-template-areas:
     "fizq fder"
@@ -57,12 +63,15 @@ header .headeright a{
 .firstpageizq {
     grid-area: fizq;
     display: flex;
-    flex-direction: column;
+    align-items: center;
     justify-content: center;
 }
 
-.stuffizq {
-    width: 40vw;
+.firstpageder {
+    grid-area: fder;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .stuffizq h1 {
@@ -76,16 +85,8 @@ header .headeright a{
     font-size: 1.8em;
 }
 
-.firstpageder {
-    grid-area: fder;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .firstpageder img {
     width: 80%;
-
 }
 
 .todaysmenu {
@@ -107,7 +108,7 @@ header .headeright a{
 
 .pag2 .container {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr;
     grid-template-areas:
     "sizq sder"
@@ -129,7 +130,6 @@ header .headeright a{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-left: 2em;
 }
 
 .secondpageder h2 {
@@ -192,7 +192,6 @@ header .headeright a{
 .pag3 .subtitle {
     color: var(--color-terciario);
     grid-area: subtitle;
-    height: 2em;
     font-size: 3em;
 }
 
@@ -212,7 +211,6 @@ header .headeright a{
     background-color: var(--color-quinto);
     display: flex;
     flex-direction: column;
-    
 }
 
 .options img {
@@ -220,7 +218,12 @@ header .headeright a{
 }
 
 .options .foodtitle {
+    color: var(--color-cuarto);
     font-weight: bold;
+}
+
+.options .fooddescription {
+    color: var(--color-cuarto);
 }
 
 .price {
@@ -290,7 +293,6 @@ header .headeright a{
 
 .options4 .fooddescription {
     text-align: center;
-    color: var(--color-terciario);
 }
 
 /* Pag 5 */
@@ -300,7 +302,7 @@ header .headeright a{
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 50vh;
+    height: 80vh;
 }
 
 .pag5 .container {
@@ -322,7 +324,7 @@ header .headeright a{
 
 .pag6 {
     width: 100%;
-    height: 20vh;
+    height: 30vh;
 }
 
 .pag6 .container {
@@ -334,6 +336,98 @@ header .headeright a{
     color: var(--color-terciario);
 }
 
-.pag6 .container div {
+.pag6 .container .menulinks, .services,  .info, .contact {
     margin-left: 3em;
+}
+
+.pag6 .line {
+    width: 3em;
+    height: 0.3vh;
+    background-color: var(--color-primario);
+}
+
+/* Telefonos Responsive */
+
+@media (width<=700px) {
+
+    body {
+        text-align: center;
+        font-size: 0.8em;
+    }
+    .headeright {
+        display: none;
+    }
+    header .menuopen {
+        color: var(--color-terciario);
+        background: none;
+        display: flex;
+        border: none;
+        font-size: 3em;
+        margin-right: 0.5em;
+    }
+
+    .pag1 .container{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas:
+        "fizq"
+        "fder"
+        ;
+    }
+
+    .pag2 .container {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas: 
+        "sder"
+        "sizq";
+    }
+
+    .secondpageder {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .pag3 {
+        margin-top: 10vw;
+    }
+    .pag3 .options{
+        padding-top: 3vw;
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+        width: 33vw;
+        gap: 10px;
+    }
+
+    .pag4 {
+        margin-top: 20vw;
+    }
+
+    .pag4 .title {
+        margin-bottom: 3vw;
+    }
+
+    .pag4 .options4 {
+        padding-top: 3vw;
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+        width: 33vw;
+        gap: 10px;
+    }
+
+    .pag6 {
+        margin-bottom: 10vw;
+    }
+    .pag6 .container{
+        display: flex;
+        text-align: start;
+        flex-direction: column;
+        gap: 15vw;
+        padding-bottom: 10vw;
+    }
 }
