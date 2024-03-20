@@ -47,6 +47,8 @@ main {
     text-shadow: 0 0 10px #fff;
     display: flex;
     flex-wrap: wrap;
+    padding-top: .5em;
+    padding-left: .5em;
     font-size: 3.5vw;
 }
 
@@ -56,10 +58,10 @@ main {
     flex-direction: column;
     width: 100%;
     gap: 2em;
+    padding-right: 0.15vw;
 }
 
 .selector button {
-    
     background-color: rgba(219, 219, 219, 0.471);
     outline: #cccccc solid;
     outline-width: 3px;
@@ -72,8 +74,14 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: inset 0 0 10px #000;
-    
+    transition: all .3s;
+}
+
+.selector button:hover {
+    cursor: pointer;
+    font-size: 1vw;
+    transform: scaleY(1.1);
+    box-shadow: 0 0 25px #fff;
 }
 
 .selector .jacket, .pants {
@@ -101,16 +109,17 @@ main {
     flex-wrap: wrap;
     width: 100%;
     height: 100%;
+    gap: 2em;
+    padding: 10px;
 }
 
 .card {
     background-color: var(--color-grisclaro);
-    margin-top: 2vw;
     outline: var(--color-blanco) solid;
     outline-width: 2px;
     width: 250px;
     height: max-content;
-    margin-left: 3em;
+
     display: flex;
     justify-content: space-between;
     flex-direction: column;
@@ -142,8 +151,9 @@ main {
 
 
 .card img {
+    max-height: 245px;
+    object-fit: contain;
     padding: 5px;
-    width: 100%;
 }
 
 .mainpart {
@@ -156,13 +166,14 @@ main {
     flex-direction: column;
     width: 70%;
     height: 85vh;
+    gap: 3em;
 }
 
 .mainpart h1 {
     color: var(--color-blanco);
     text-shadow: 0 0 10px #fff;
     line-height: 1;
-    font-size: 3.5vw;
+    font-size: 2.5vw;
 }
 
 .agregar {
