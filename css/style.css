@@ -7,43 +7,77 @@
     padding: 0;
     box-sizing: border-box;
 }
+
 body {
     font-family: 'Poppins', sans-serif;
+    background-color: var(--color-gris);
 }
 
 main {
     display: flex;
 }
 
+.wallp {
+    position: absolute;
+    background: var(--color-negro);
+    width: 100%;
+    height: 100vh;
+    z-index: -1;
+}
+
+.wallp img{
+    position: absolute;
+    object-fit: cover;
+    width: 100%;
+    height: 100vh;
+    rotate: (90deg);
+}
+
 .leftpart{
     display: flex;
     flex-direction: column;
+    align-items: center;
     flex-wrap: wrap;
-    padding-top: 3em;
-    padding-left: 3em;
-    width: 40%;
+    width: 50em;
 }
 
 .leftpart h1 {
+    color: var(--color-blanco);
+    text-shadow: 0 0 10px #fff;
     display: flex;
     flex-wrap: wrap;
     font-size: 4em;
 }
 
 .selector {
-    margin-top: 3%;
+    margin-top: 30%;
     display: flex;
     flex-direction: column;
-    width: 25em;
-    gap: 1em;
+    width: 100%;
+    gap: 2em;
 }
 
 .selector button {
-    font-size: 2em;
+    
+    background-color: rgb(219, 219, 219)fcf;
+    outline: #cccccc solid;
+    outline-width: 3px;
+    border-bottom-left-radius: 20px;
+    border-top-left-radius: 20px;
+    border: none;
+    height: 2em;
+    width: 100%;
+    font-size: 1.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: inset 0 0 10px #000;
+    
 }
 
 .selector .jacket, .pants {
-    width: 10%;
+    width: 1.3em;
+    margin-right: 10px;
 }
 
 .selector .carritos {
@@ -57,38 +91,79 @@ main {
     margin-top: 5em;
 }
 
+.cardzone {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 80em;
+    height: 100%;
+}
+
 .card {
-    outline: red solid;
-    width: 15vw;
-    height: 30vh;
+    background-color: var(--color-grisclaro);
+    margin-top: 3em;
+    outline: var(--color-blanco) solid;
+    outline-width: 2px;
+    width: 250px;
+    height: max-content;
+    margin-left: 3em;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    border-radius: 10px;
+    box-shadow: inset 0 0 25px #000;
 }
 
 .card .description {
-    margin-top: 3em;
+    background-color: var(--color-gris);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    height: 60px;
+    width: 250px;
     display: flex;
-    flex-direction: column;
-    outline: red solid;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
+.card .description p {
+    color: var(--color-blanco);
+}
+
+.description .principal{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
 .card img {
+    padding: 5px;
     width: 100%;
 }
 
 .mainpart {
-    margin-top: 5em;
-    margin-left: 3em;
-    outline: red solid;
+    margin-top: 6em;
+    padding: 2em;
+    border-radius: 20px;
+    outline: var(--color-blanco) solid;
+    outline-width: 2px;
     display: flex;
     flex-direction: column;
     width: 100%;
     height: 85vh;
-    left: 2em;
 }
 
 .mainpart h1 {
+    color: var(--color-blanco);
+    text-shadow: 0 0 10px #fff;
+    line-height: 1;
     font-size: 3em;
 }
 
 .agregar {
-    width: 10vw;
+    border: none;
+    border-radius: 10px;
+    height: 30px;
+    width: 100px;
 }
