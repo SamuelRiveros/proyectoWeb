@@ -11,6 +11,8 @@
 body {
     font-family: 'Poppins', sans-serif;
     background-color: var(--color-gris);
+    width: 100vw;
+    height: 100vh;
 }
 
 main {
@@ -36,9 +38,8 @@ main {
 .leftpart{
     display: flex;
     flex-direction: column;
-    align-items: center;
     flex-wrap: wrap;
-    width: 50em;
+    width: 30%;
 }
 
 .leftpart h1 {
@@ -46,7 +47,7 @@ main {
     text-shadow: 0 0 10px #fff;
     display: flex;
     flex-wrap: wrap;
-    font-size: 4em;
+    font-size: 3.5vw;
 }
 
 .selector {
@@ -59,7 +60,7 @@ main {
 
 .selector button {
     
-    background-color: rgb(219, 219, 219)fcf;
+    background-color: rgba(219, 219, 219, 0.471);
     outline: #cccccc solid;
     outline-width: 3px;
     border-bottom-left-radius: 20px;
@@ -67,7 +68,7 @@ main {
     border: none;
     height: 2em;
     width: 100%;
-    font-size: 1.5em;
+    font-size: 1vw;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -85,6 +86,7 @@ main {
 }
 
 .credits {
+    color: var(--color-blanco);
     display: flex;
     justify-content: center;
     font-size: 1.5em;
@@ -92,16 +94,18 @@ main {
 }
 
 .cardzone {
+    flex-wrap: wrap;
+    overflow-y: scroll;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    width: 80em;
+    width: 100%;
     height: 100%;
 }
 
 .card {
     background-color: var(--color-grisclaro);
-    margin-top: 3em;
+    margin-top: 2vw;
     outline: var(--color-blanco) solid;
     outline-width: 2px;
     width: 250px;
@@ -150,7 +154,7 @@ main {
     outline-width: 2px;
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: 70%;
     height: 85vh;
 }
 
@@ -158,7 +162,7 @@ main {
     color: var(--color-blanco);
     text-shadow: 0 0 10px #fff;
     line-height: 1;
-    font-size: 3em;
+    font-size: 3.5vw;
 }
 
 .agregar {
