@@ -64,7 +64,7 @@ main {
 .selector button {
     background-color: rgba(219, 219, 219, 0.471);
     outline: #cccccc solid;
-    outline-width: 3px;
+    outline-width: 2px;
     border-bottom-left-radius: 20px;
     border-top-left-radius: 20px;
     border: none;
@@ -89,8 +89,20 @@ main {
     margin-right: 10px;
 }
 
-.selector .carritos {
+.selector .carrito {
     margin-top: 5em;
+}
+
+.cantidadcarrito {
+    color: var(--color-blanco);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    background-color: var(--color-gris);
+    width: 2em;
+    height: 1.5em;
+    margin-left: 20px;
 }
 
 .credits {
@@ -136,10 +148,12 @@ main {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+    padding: 1em;
     align-items: center;
 }
 
 .card .description p {
+    font-size: 14px;
     color: var(--color-blanco);
 }
 
@@ -154,6 +168,7 @@ main {
     max-height: 245px;
     object-fit: contain;
     padding: 5px;
+    -webkit-user-drag: none;
 }
 
 .mainpart {
@@ -181,4 +196,21 @@ main {
     border-radius: 10px;
     height: 30px;
     width: 100px;
+    transition: all 0.3s;
+}
+
+.agregar:hover {
+    cursor: pointer;
+    color: var(--color-blanco);
+    background-color: var(--color-grisclaro);
+    box-shadow: 0 0 20px #000;
+    transition: 0.3s;
+}
+
+
+/* Estamos ubicados en la parte de productos, por lo tanto se mostrará así */
+
+.productos {
+    color: var(--color-blanco);
+    text-shadow: 0px 0px 5px #000;
 }
