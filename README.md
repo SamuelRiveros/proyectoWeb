@@ -1,1 +1,1 @@
-Maquetado Base para el proyecto
+![](https://github.com/SamuelRiveros/proyectoWeb/blob/parte_1/storage/gif/proyecto1.gif)
