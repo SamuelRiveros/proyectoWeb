@@ -472,14 +472,14 @@ main {
         outline: var(--color-blanco) solid;
         outline-width: 2px;
         width: 100%;
-        height: 20%;
+        height: 20vh;
 
         border-radius: 10px;
         box-shadow: inset 0 0 25px #000;
     }
 
     .carrito img {
-        width: 20%;
+        width: 25%;
         max-height: 245px;
         object-fit: contain;
         padding: 3px;
@@ -487,6 +487,7 @@ main {
     }
 
     .carrito .description {
+        padding-top: 1vh;
         width: 80%;
         display: flex;
         gap: 10px;
@@ -500,12 +501,16 @@ main {
     }
 
     .carrito .description p {
-        font-size: 10px;
+        font-size: 1vh;
         color: var(--color-blanco);
     }
 
     .carrito .principal,.cantidad,.precio,.subtotal {
         text-align: center;
+    }
+
+    .vaciarcarrito p, .totalcarrito p{
+        font-size: 1.5vh;
     }
 
 }
