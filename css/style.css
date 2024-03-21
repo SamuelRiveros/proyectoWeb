@@ -35,11 +35,19 @@ main {
     rotate: (90deg);
 }
 
+.menuopen {
+    display: none;
+}
+
+.menucel {
+    display: none;
+}
+
 .leftpart{
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    width: 30%;
+    width: 100%;
 }
 
 .leftpart h1 {
@@ -347,4 +355,157 @@ main {
 .productos {
     color: var(--color-blanco);
     text-shadow: 0px 0px 5px #000;
+}
+
+@media (width<=700px) {
+    .selector {
+        display: none;
+    }
+
+    header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .menuopen {
+        color: var(--color-blanco);
+        background: none;
+        display: flex;
+        border: none;
+        font-size: 3em;
+        padding-right: 1vw;
+    }
+
+    .visible {
+        color: var(--color-blanco);
+        background-color: #000000b4;
+        width: 100%;
+        height: 30%;
+        top:17vh;
+        position: fixed;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1em;
+        font-size: 2vh;
+    }
+    
+
+    main {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .leftpart {
+        height: 5%;
+        width: 100vw;
+    }
+    .leftpart h1 {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        font-size: 30px;
+    }
+
+    .credits {
+        display: flex;
+        margin-top: 0em;
+    }
+
+    .credits p {
+        font-size: 15px;
+    }
+
+    .mainpart {
+        outline: none;
+        border: var(--color-blanco) solid;
+        border-width: 1px;
+        width: 100vw;
+        height: 87.5vh;
+        display: flex;
+        margin-top: 3vh;
+        padding: 1em;
+        gap: 1em;
+    }
+
+    .mainpart h1 {
+        padding: 1vw;
+        font-size: 20px;
+    }
+
+    .cardzone {
+        border-radius: 20px;
+        padding: 5px;
+    }
+
+    .card {
+        width: 45%;
+        max-height: 45%;
+    }
+
+    .card img {
+        object-fit: contain;
+        max-height: 160px;
+        padding: 0px;
+    }
+
+    .card .description {
+        width: auto;
+        height: max-content;
+        padding: 0.3em;
+    }
+
+    .card .description .principal p, .agregar {
+        font-size: 10px;
+    }
+
+
+
+
+    .carrito {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: var(--color-grisclaro);
+        outline: var(--color-blanco) solid;
+        outline-width: 2px;
+        width: 100%;
+        height: 20%;
+
+        border-radius: 10px;
+        box-shadow: inset 0 0 25px #000;
+    }
+
+    .carrito img {
+        width: 20%;
+        max-height: 245px;
+        object-fit: contain;
+        padding: 3px;
+        -webkit-user-drag: none;
+    }
+
+    .carrito .description {
+        width: 80%;
+        display: flex;
+        gap: 10px;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .carrito .description .eliminar {
+        color: red;
+    }
+
+    .carrito .description p {
+        font-size: 10px;
+        color: var(--color-blanco);
+    }
+
+    .carrito .principal,.cantidad,.precio,.subtotal {
+        text-align: center;
+    }
+
 }

@@ -113,4 +113,43 @@ btncarrito.addEventListener("click", event=> {
 })
 
 
-/* Sistema de compras */
+/* Funcionalidad del menu desplegable */
+
+function change() {
+    var btn = document.getElementById("menucel");
+    btn.classList.toggle("visible");
+}
+
+
+function cerrarMenu() {
+    var btn = document.getElementById("menucel");
+    btn.classList.remove("visible");
+}
+
+var enlacesMenu = document.querySelectorAll(".menucel a");
+enlacesMenu.forEach(function(enlace) {
+    enlace.addEventListener("click", cerrarMenu);
+});
+
+
+
+
+document.getElementById("celProductos").addEventListener("click", function() {
+    document.getElementById("btnProductos").click();
+});
+
+document.getElementById("celAbrigos").addEventListener("click", function() {
+    document.getElementById("btnAbrigos").click();
+});
+
+document.getElementById("celCamisetas").addEventListener("click", function() {
+    document.getElementById("btnCamisetas").click();
+});
+
+document.getElementById("celPantalones").addEventListener("click", function() {
+    document.getElementById("btnPantalones").click();
+});
+
+document.getElementById("celCarrito").addEventListener("click", function() {
+    document.getElementById("btnCarrito").click();
+});
