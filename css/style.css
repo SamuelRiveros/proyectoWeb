@@ -75,6 +75,11 @@ header .menuopen {
     align-items: center;
 }
 
+.menucel a{
+    color: var(--color-terciario);
+    text-decoration: none;
+}
+
 .firstpageizq {
     grid-area: fizq;
     display: flex;
@@ -387,10 +392,6 @@ header .menuopen {
 
 @media (width<=700px) {
 
-    * {
-
-    }
-
     body {
         text-align: center;
         font-size: 10px;
@@ -421,7 +422,7 @@ header .menuopen {
         height: 30%;
         grid-area: menucel;
         margin-top: 5em;
-        position: absolute;
+        position: fixed;
         display: flex;
         flex-direction: column;
         justify-content: center;
