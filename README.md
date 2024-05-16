@@ -1,1 +1,1 @@
-![](https://github.com/SamuelRiveros/proyectoWeb/blob/parte_2/storage/gif/proyectop2.gif)
+wasjapenin, proshecto web de javascript sheeesh
