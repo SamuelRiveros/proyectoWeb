@@ -345,14 +345,6 @@ main {
 }
 
 
-/* Estamos ubicados en la parte de productos, por lo tanto se mostrará así */
-
-.productos {
-    color: var(--color-blanco);
-    text-shadow: 0px 0px 5px #000;
-}
-
-
 
 
 /* ---------------------------------------------------------------------------------------------------------*/

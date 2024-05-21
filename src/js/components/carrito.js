@@ -8,7 +8,11 @@ export class carrito extends LitElement {
 
 
     static styles= css`
-
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
     .carritozone {
         flex-wrap: wrap;
         overflow-y: scroll;
@@ -140,6 +144,8 @@ export class carrito extends LitElement {
     render(){
 
     return html`
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    
     <div class="carrito producto">
         <img src="img/defaultshirt.png">
         <div class="description">
