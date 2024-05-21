@@ -1,3 +1,12 @@
+import { productos } from "./components/products.js"
+customElements.define("my-productos", productos);
+
+import { carrito } from "./components/carrito.js";
+customElements.define("my-carrito", carrito)
+
+
+
+
 let btnCamisas = document.getElementById("btnCamisetas")
 let btnabrigos = document.getElementById("btnAbrigos")
 let btnpantalones = document.getElementById("btnPantalones")
@@ -11,13 +20,17 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
 
 btnCamisas.addEventListener("click", event => {
-    const quitar = document.querySelectorAll(".pantalones , .abrigos , .carrito , .carritopciones");
-    const ver = document.querySelectorAll(".camisetas")
+    const myproductos = document.querySelector("my-productos");
+    const mycarrito = document.querySelector("my-carrito");
+
+    const quitar = myproductos.shadowRoot.querySelectorAll(".pantalones , .carrito , .carritopciones, .abrigos") && mycarrito.shadowRoot.querySelectorAll(".carrito");
+    
+    const ver = myproductos.shadowRoot.querySelectorAll(".camisetas")
+
 
     quitar.forEach(element => {
         element.style.display = "none";
-    });
-
+    })
     ver.forEach(element => {
         element.style.display = "flex";
     });
@@ -32,8 +45,13 @@ btnCamisas.addEventListener("click", event => {
 });
 
 btnabrigos.addEventListener("click", event => {
-    const quitar = document.querySelectorAll(".camisetas , .pantalones , .carrito , .carritopciones");
-    const ver = document.querySelectorAll(".abrigos")
+    const myproductos = document.querySelector("my-productos");
+    const mycarrito = document.querySelector("my-carrito");
+
+    const quitar = myproductos.shadowRoot.querySelectorAll(".pantalones , .carritopciones, .camisetas") && mycarrito.shadowRoot.querySelectorAll(".carrito");
+    
+    const ver = myproductos.shadowRoot.querySelectorAll(".abrigos")
+
     quitar.forEach(elementos => {
         elementos.style.display = "none";
     });
@@ -52,8 +70,11 @@ btnabrigos.addEventListener("click", event => {
 });
 
 btnpantalones.addEventListener("click", event => {
-    const quitar = document.querySelectorAll(".camisetas , .abrigos , .carrito , .carritopciones");
-    const ver = document.querySelectorAll(".pantalones")
+    const myproductos = document.querySelector("my-productos");
+    const mycarrito = document.querySelector("my-carrito");
+    
+    const quitar = myproductos.shadowRoot.querySelectorAll(".camisetas , .abrigos , .carrito , .carritopciones") && mycarrito.shadowRoot.querySelectorAll(".carrito");
+    const ver = myproductos.shadowRoot.querySelectorAll(".pantalones")
 
     quitar.forEach(element => {
         element.style.display = "none";
@@ -72,8 +93,11 @@ btnpantalones.addEventListener("click", event => {
 });
 
 btnproductos.addEventListener("click", event => {
-    const quitar = document.querySelectorAll(".carrito , .carritopciones");
-    const ver = document.querySelectorAll(".pantalones, .abrigos, .camisetas")
+    const myproductos = document.querySelector("my-productos");
+    const mycarrito = document.querySelector("my-carrito");
+
+    const quitar = myproductos.shadowRoot.querySelectorAll(".carritopciones") && mycarrito.shadowRoot.querySelectorAll(".carrito");
+    const ver = myproductos.shadowRoot.querySelectorAll(".pantalones, .abrigos, .camisetas")
 
     quitar.forEach(element => {
         element.style.display = "none";
@@ -92,9 +116,16 @@ btnproductos.addEventListener("click", event => {
     btncarrito.style.color = "black"
 });
 
+
+// CARRITO POR EDITARRRRR RAHH //
+
+
 btncarrito.addEventListener("click", event=> {
-    const quitar = document.querySelectorAll(".camisetas , .abrigos , .pantalones");
-    const ver = document.querySelectorAll(".carrito , .carritopciones")
+    const mycarrito = document.querySelector("my-carrito");
+    const myproductos = document.querySelector("my-productos");
+
+    const quitar = myproductos.shadowRoot.querySelectorAll(".camisetas , .abrigos , .pantalones");
+    const ver = mycarrito.shadowRoot.querySelectorAll(".carrito , .carritopciones")
 
     quitar.forEach(element => {
         element.style.display = "none";
@@ -111,6 +142,20 @@ btncarrito.addEventListener("click", event=> {
     btnproductos.style.color = "black";
     btncarrito.style.color = "white"
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /* Funcionalidad del menu desplegable */
