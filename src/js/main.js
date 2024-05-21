@@ -145,9 +145,6 @@ btnproductos.addEventListener("click", event => {
 });
 
 
-// CARRITO POR EDITARRRRR RAHH //
-
-
 btncarrito.addEventListener("click", event=> {
     const myproductos = document.querySelector("my-productos")
     const mycarrito = document.querySelector("my-carrito");

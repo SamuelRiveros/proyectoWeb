@@ -70,6 +70,10 @@ export class carrito extends LitElement {
         font-size: 2em;
     }
 
+    .eliminar:hover {
+        cursor: pointer
+    }
+
 
 
 
@@ -77,12 +81,15 @@ export class carrito extends LitElement {
 
 
     .carritopciones {
+        position: absolute;
         align-items: center;
-        width: 100%;
         color: var(--color-blanco);
         display: flex;
         flex-direction: row;
+        bottom: 100px;
+        width: 850px;
         justify-content: space-between;
+
     }
     
     .carritopciones .vaciarcarrito {
@@ -145,7 +152,7 @@ export class carrito extends LitElement {
 
     return html`
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    
+
     <div class="carrito producto">
         <img src="img/defaultshirt.png">
         <div class="description">
@@ -178,6 +185,11 @@ export class carrito extends LitElement {
 
 
 
+
+
+
+
+    
 
 
 

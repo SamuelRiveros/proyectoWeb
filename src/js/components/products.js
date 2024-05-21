@@ -9,7 +9,8 @@ export class productos extends LitElement {
     static properties = {
         dataAbrigos: { type: Array },
         dataCamisetas: { type: Array },
-        dataPantalones: { type: Array }
+        dataPantalones: { type: Array },
+        cantidadEnCarrito: { type: Number }
     }
 
     constructor() {
@@ -17,6 +18,7 @@ export class productos extends LitElement {
         this.dataAbrigos = [];
         this.dataCamisetas = [];
         this.dataPantalones = [];
+        this.cantidadEnCarrito = 0;
     }
 
     async abrigosDesign(){
@@ -39,11 +41,24 @@ export class productos extends LitElement {
         ]);
     }
 
+    agregarAlCarrito() {
+        this.cantidadEnCarrito++;
+        const cantidadCarritoElement = document.querySelector('.cantidadcarrito');
+        if (cantidadCarritoElement) {
+            cantidadCarritoElement.textContent = this.cantidadEnCarrito;
+        } else {
+            console.error("No se encontró el elemento '.cantidadcarrito'");
+        }
+
+        
+    }
+
     //
 
 
 
     // ------ carrito ------ //
+
 
 
     // --------------------- //
@@ -125,7 +140,7 @@ export class productos extends LitElement {
                         <p>${val.nombre}</p>
                         <p>${val.precio}</p>
                     </div>
-                    <button class="agregar">Agregar</button>
+                    <button class="agregar" @click="${this.agregarAlCarrito}">Agregar</button>
                 </div>
             </div>
 
@@ -139,7 +154,7 @@ export class productos extends LitElement {
                         <p>${val.nombre}</p>
                         <p>${val.precio}</p>
                     </div>
-                    <button class="agregar">Agregar</button>
+                    <button class="agregar" @click="${this.agregarAlCarrito}">Agregar</button>
                 </div>
             </div>
 
@@ -153,7 +168,7 @@ export class productos extends LitElement {
                         <p>${val.nombre}</p>
                         <p>${val.precio}</p>
                     </div>
-                    <button class="agregar">Agregar</button>
+                    <button class="agregar" @click="${this.agregarAlCarrito}">Agregar</button>
                 </div>
             </div>
 
