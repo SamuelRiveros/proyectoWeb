@@ -1,10 +1,28 @@
 import { LitElement, html, css } from "lit";
 
-export class carrito extends LitElement {
-    constructor() {
-        super()
 
+export class carrito extends LitElement {
+
+    static properties = {
+        dataCarrito: {type: Array},
     }
+
+    constructor() {
+        super();
+        this.dataCarrito = []
+        const carritoData = JSON.parse(localStorage.getItem('carrito')) || [];
+        this.dataCarrito = carritoData.map(item => ({
+            nombre: item.nombre,
+            cantidad: item.quantity,
+            precio: item.precio,
+            subtotal: item.quantity * item.precio
+        }));
+        console.log(this.dataCarrito)
+    }
+    
+
+
+
 
 
     static styles= css`
@@ -13,17 +31,7 @@ export class carrito extends LitElement {
         padding: 0;
         box-sizing: border-box;
     }
-    .carritozone {
-        flex-wrap: wrap;
-        overflow-y: scroll;
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        width: 100%;
-        height: 100%;
-        gap: 2em;
-        padding: 10px;
-    }
+    
     
     .carrito {
         display: flex;
@@ -153,35 +161,41 @@ export class carrito extends LitElement {
     return html`
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
-    <div class="carrito producto">
-        <img src="img/defaultshirt.png">
-        <div class="description">
-            <div class="principal">
-                <p>Nombre</p>
-                <p class="nombre">NOMBRE PLACEHOLDER</p>
-            </div>
-            
-            <div class="cantidad">
-                <p>Cantidad</p>
-                <p>CANTIDAD PLACEHOLDER</p>
-            </div>
 
-            <div class="precio">
-                <p>Precio</p>
-                <p>PRECIO PLACEHOLDER</p>
-            </div>
+    ${this.dataCarrito.map(val => html`
+        <div class="carrito producto">
+            <img src="img/defaultshirt.png">
+            <div class="description">
+                <div class="principal">
+                    <p>Nombre</p>
+                    <p class="nombre">${val.nombre}</p>
+                </div>
+                
+                <div class="cantidad">
+                    <p>Cantidad</p>
+                    <p>${val.cantidad}</p>
+                </div>
 
-            <div class="subtotal">
-                <p>Subtotal</p>
-                <p>SUBTOTAL PLACEHOLDER</p>
-            </div>
+                <div class="precio">
+                    <p>Precio</p>
+                    <p>${val.precio}</p>
+                </div>
 
-            <div class="eliminar">
-                <i class='bx bx-x'></i>
-            </div>
+                <div class="subtotal">
+                    <p>Subtotal</p>
+                    <p>${val.subtotal}</p>
+                </div>
 
+                <div class="eliminar">
+                    <i class='bx bx-x'></i>
+                </div>
+
+            </div>
         </div>
-    </div>
+    
+    
+    
+    `)}
 
 
 

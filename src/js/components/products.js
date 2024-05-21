@@ -1,8 +1,6 @@
 import { LitElement, html, css } from "lit";
 
-import { abrigos , camisetas, pantalones, carrito } from "../modules/consultas";
-
-
+import { abrigos , camisetas, pantalones } from "../modules/consultas";
 
 export class productos extends LitElement {
 
@@ -13,6 +11,57 @@ export class productos extends LitElement {
         cantidadEnCarrito: { type: Number }
     }
 
+    agregarAlCarrito(event) {
+        const card = event.target.closest('.card');
+        const nombre = card.querySelector('.principal p:first-child').textContent;
+        const precio = card.querySelector('.principal p:last-child').textContent;
+        const imagen = card.querySelector('img').src;
+        const id = card.querySelector(".id").textContent
+        const producto = {
+            nombre: nombre,
+            precio: precio,
+            imagen: imagen,
+            id: id,
+
+        };
+        this.exportarACarrito(producto);
+        this.cantidadEnCarrito++;
+        const cantidadCarritoElement = document.querySelector('.cantidadcarrito');
+        if (cantidadCarritoElement) {
+            cantidadCarritoElement.textContent = this.cantidadEnCarrito;
+        } else {
+            console.error("No se encontró el elemento '.cantidadcarrito'");
+        }
+        
+    }
+
+    exportarACarrito(producto) {
+        let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+
+        // Buscar si el producto ya está en el carrito
+        const existingProductIndex = carrito.findIndex(item => item.id === producto.id);
+    
+        if (existingProductIndex !== -1) {
+            // Si el producto ya está en el carrito, incrementar su cantidad
+            carrito[existingProductIndex].quantity++;
+        } else {
+            // Si el producto no está en el carrito, añadirlo
+            carrito.push({
+                id: producto.id,
+                nombre: producto.nombre,
+                imagen: producto.imagen,
+                precio: producto.precio,
+                quantity: 1  // Inicialmente la cantidad es 1
+            });
+        }
+    
+        localStorage.setItem('carrito', JSON.stringify(carrito)); 
+        localStorage.removeItem("carrito")
+        console.log(carrito)
+        
+    }
+
+    
     constructor() {
         super()
         this.dataAbrigos = [];
@@ -41,31 +90,6 @@ export class productos extends LitElement {
         ]);
     }
 
-    agregarAlCarrito() {
-        this.cantidadEnCarrito++;
-        const cantidadCarritoElement = document.querySelector('.cantidadcarrito');
-        if (cantidadCarritoElement) {
-            cantidadCarritoElement.textContent = this.cantidadEnCarrito;
-        } else {
-            console.error("No se encontró el elemento '.cantidadcarrito'");
-        }
-
-        
-    }
-
-    //
-
-
-
-    // ------ carrito ------ //
-
-
-
-    // --------------------- //
-
-
-
-
 
     static styles= css`
 
@@ -76,7 +100,7 @@ export class productos extends LitElement {
     }
     
     .card {
-        background-color: var(--color-grisclaro);
+        background-color: var(--color-blanco);
         outline: var(--color-blanco) solid;
         outline-width: 2px;
         width: 250px;
@@ -112,6 +136,7 @@ export class productos extends LitElement {
         object-fit: contain;
         padding: 5px;
         -webkit-user-drag: none;
+        border-radius: 10px;
     }
 
     .agregar {
@@ -137,8 +162,9 @@ export class productos extends LitElement {
                 <img src="${val.imagen}">
                 <div class="description">
                     <div class="principal">
-                        <p>${val.nombre}</p>
-                        <p>${val.precio}</p>
+                    <p>${val.nombre}</p>
+                    <p class ="id" style="display: none">${val.id}</p>
+                    <p>${val.precio}</p>
                     </div>
                     <button class="agregar" @click="${this.agregarAlCarrito}">Agregar</button>
                 </div>
@@ -151,8 +177,9 @@ export class productos extends LitElement {
                 <img src="${val.imagen}">
                 <div class="description">
                     <div class="principal">
-                        <p>${val.nombre}</p>
-                        <p>${val.precio}</p>
+                    <p>${val.nombre}</p>
+                    <p class ="id" style="display: none">${val.id}</p>
+                    <p>${val.precio}</p>
                     </div>
                     <button class="agregar" @click="${this.agregarAlCarrito}">Agregar</button>
                 </div>
@@ -166,6 +193,7 @@ export class productos extends LitElement {
                 <div class="description">
                     <div class="principal">
                         <p>${val.nombre}</p>
+                        <p class ="id" style="display: none">${val.id}</p>
                         <p>${val.precio}</p>
                     </div>
                     <button class="agregar" @click="${this.agregarAlCarrito}">Agregar</button>
