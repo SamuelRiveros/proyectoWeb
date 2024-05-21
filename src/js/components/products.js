@@ -1,10 +1,55 @@
 import { LitElement, html, css } from "lit";
 
+import { abrigos , camisetas, pantalones, carrito } from "../modules/consultas";
+
+
+
 export class productos extends LitElement {
+
+    static properties = {
+        dataAbrigos: { type: Array },
+        dataCamisetas: { type: Array },
+        dataPantalones: { type: Array }
+    }
+
     constructor() {
         super()
-
+        this.dataAbrigos = [];
+        this.dataCamisetas = [];
+        this.dataPantalones = [];
     }
+
+    async abrigosDesign(){
+        this.dataAbrigos = await abrigos();
+    }
+
+    async camisetasDesign(){
+        this.dataCamisetas = await camisetas();
+    }
+
+    async pantalonesDesign(){
+        this.dataPantalones = await pantalones();
+    }
+
+    async firstUpdated(){
+        await Promise.all([
+            this.abrigosDesign(),
+            this.camisetasDesign(),
+            this.pantalonesDesign()
+        ]);
+    }
+
+    //
+
+
+
+    // ------ carrito ------ //
+
+
+    // --------------------- //
+
+
+
 
 
     static styles= css`
@@ -71,45 +116,53 @@ export class productos extends LitElement {
     }
     `
     render(){
-
-    return html`
-        <div class="card camisetas">
-            <img src="img/defaultshirt.png">
-            <div class="description">
-                <div class="principal">
-                    <p>CAMISETASSS</p>
-                    <p class="costoCard">$15.000</p>
+        return html`
+        ${this.dataAbrigos.map(val => html`
+            <div class="card abrigos">
+                <img src="${val.imagen}">
+                <div class="description">
+                    <div class="principal">
+                        <p>${val.nombre}</p>
+                        <p>${val.precio}</p>
+                    </div>
+                    <button class="agregar">Agregar</button>
                 </div>
-                <button class="agregar">Agregar</button>
             </div>
-        </div>
 
+        `)}
 
-        <div class="card pantalones">
-            <img src="img/defaultshirt.png">
-            <div class="description">
-                <div class="principal">
-                    <p>PANTALONESRAHHSDHASD</p>
-                    <p class="costoCard">$15.000</p>
+        ${this.dataCamisetas.map(val => html`
+            <div class="card camisetas">
+                <img src="${val.imagen}">
+                <div class="description">
+                    <div class="principal">
+                        <p>${val.nombre}</p>
+                        <p>${val.precio}</p>
+                    </div>
+                    <button class="agregar">Agregar</button>
                 </div>
-                <button class="agregar">Agregar</button>
             </div>
-        </div>
 
-        <div class="card abrigos">
-            <img src="img/defaultshirt.png">
-            <div class="description">
-                <div class="principal">
-                    <p>ABRIGOOOSS</p>
-                    <p class="costoCard">$15.000</p>
+        `)}
+
+        ${this.dataPantalones.map(val => html`
+            <div class="card pantalones">
+                <img src="${val.imagen}">
+                <div class="description">
+                    <div class="principal">
+                        <p>${val.nombre}</p>
+                        <p>${val.precio}</p>
+                    </div>
+                    <button class="agregar">Agregar</button>
                 </div>
-                <button class="agregar">Agregar</button>
             </div>
-        </div>
 
-        
+        `)}
+
+
+
+
         `
     }
 
 }
-

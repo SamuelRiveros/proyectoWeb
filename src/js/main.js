@@ -2,7 +2,10 @@ import { productos } from "./components/products.js"
 customElements.define("my-productos", productos);
 
 import { carrito } from "./components/carrito.js";
+import { abrigos } from "./modules/consultas.js";
 customElements.define("my-carrito", carrito)
+
+console.log(await abrigos())
 
 
 
@@ -43,6 +46,8 @@ btnCamisas.addEventListener("click", event => {
         element.style.display = "flex";
     });
 
+    mycarrito.style.display = "none";
+
     document.querySelector(".titulomain").innerHTML = 'Camisas'
 
     btnCamisas.style.color = "white";
@@ -73,6 +78,8 @@ btnabrigos.addEventListener("click", event => {
         element.style.display = "flex";
     });
 
+    mycarrito.style.display = "none";
+
     document.querySelector(".titulomain").innerHTML = 'Abrigos'
 
     btnCamisas.style.color = "black";
@@ -100,6 +107,8 @@ btnpantalones.addEventListener("click", event => {
         element.style.display = "flex";
     });
 
+    mycarrito.style.display = "none";
+
     document.querySelector(".titulomain").innerHTML = 'Pantalones'
 
     btnCamisas.style.color = "black";
@@ -123,6 +132,8 @@ btnproductos.addEventListener("click", event => {
     ver.forEach(element => {
         element.style.display = "flex";
     });
+
+    mycarrito.style.display = "none";
 
     document.querySelector(".titulomain").innerHTML = 'Todos los productos'
 
@@ -151,6 +162,8 @@ btncarrito.addEventListener("click", event=> {
         element.style.display = "flex";
     });
 
+    mycarrito.style.display = "block";
+
     document.querySelector(".titulomain").innerHTML = '- Carrito -'
 
     btnCamisas.style.color = "black";
@@ -159,20 +172,6 @@ btncarrito.addEventListener("click", event=> {
     btnproductos.style.color = "black";
     btncarrito.style.color = "white"
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 /* Funcionalidad del menu desplegable */
