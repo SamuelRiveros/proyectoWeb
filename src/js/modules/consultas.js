@@ -16,11 +16,6 @@ export const pantalones = async() =>{
     return data
 }
 
-export const carrito = async() =>{
-    let res = await fetch(`http://localhost:5501/carrito`)
-    let data = await res.json();
-    return data
-}
 
 export const carritodb = async() =>{
     let res = await fetch(`http://localhost:5501/carrito`)

@@ -9,7 +9,6 @@ export class productos extends LitElement {
         dataAbrigos: { type: Array },
         dataCamisetas: { type: Array },
         dataPantalones: { type: Array },
-        cantidadEnCarrito: { type: Number }
     }
 
     constructor() {
@@ -17,7 +16,6 @@ export class productos extends LitElement {
         this.dataAbrigos = [];
         this.dataCamisetas = [];
         this.dataPantalones = [];
-        this.cantidadEnCarrito = 0;
     }
 
     async abrigosDesign(){
@@ -89,7 +87,7 @@ export class productos extends LitElement {
         // Almacenar el carrito actualizado en localStorage
         localStorage.setItem('carrito', JSON.stringify(carrito)); 
         //localStorage.getItem('carrito')
-        localStorage.removeItem("carrito")
+        //localStorage.removeItem("carrito")
         console.log(carrito)
         
     }

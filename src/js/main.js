@@ -8,6 +8,17 @@ customElements.define("my-carrito", carrito)
 //console.log(await abrigos())
 
 
+document.addEventListener("DOMContentLoaded", event => {
+    pintarCantidad()
+} )
+
+export function pintarCantidad(){
+    let divnum = document.querySelector(".cantidadcarrito")
+    let storageCarrito = localStorage.getItem("carrito")
+    storageCarrito = JSON.parse(storageCarrito)
+    let cant = storageCarrito.length
+    divnum.textContent = cant
+}
 
 
 let btnCamisas = document.getElementById("btnCamisetas")

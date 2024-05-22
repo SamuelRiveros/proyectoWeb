@@ -10,8 +10,7 @@ export class carrito extends LitElement {
     constructor() {
         super();
         this.dataCarrito = []
-        this.totalCarrito = 0
-
+        
         const carritoData = JSON.parse(localStorage.getItem('carrito')) || [];
         this.dataCarrito = carritoData.map(item => ({
             imagen: item.imagen,
@@ -22,8 +21,23 @@ export class carrito extends LitElement {
         }));
         //console.log(this.dataCarrito)
     }
-    
 
+    eliminarCarrito() {
+        let carritovar = localStorage.removeItem("carrito")
+        console.log(carritovar)
+    }
+
+    // Estudiar esto //
+    
+    async totalCarrito() {
+        let carritovar = await JSON.parse(localStorage.getItem("carrito"))
+        let counter = 0
+        for(let element of carritovar) {
+            counter += Number(element.precio) * Number(element.quantity)
+            console.log(element)
+        };
+        this.shadowRoot.querySelector(".total").textContent = `${counter}`
+    }
 
 
 
@@ -214,13 +228,13 @@ export class carrito extends LitElement {
 
 
     <div class="carritopciones">
-        <button class="vaciarcarrito">
+        <button class="vaciarcarrito" @click="${this.eliminarCarrito}">
             <p>Vaciar Carrito</p>
         </button>
         <div class="totalcarrito">
             <p>Total</p>
             <p class="total">
-                $TOTAL PLACEHOLDER
+                ${this.totalCarrito()}
             </p>
 
             <div class="compra">
