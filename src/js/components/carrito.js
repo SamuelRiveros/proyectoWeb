@@ -10,14 +10,17 @@ export class carrito extends LitElement {
     constructor() {
         super();
         this.dataCarrito = []
+        this.totalCarrito = 0
+
         const carritoData = JSON.parse(localStorage.getItem('carrito')) || [];
         this.dataCarrito = carritoData.map(item => ({
+            imagen: item.imagen,
             nombre: item.nombre,
             cantidad: item.quantity,
             precio: item.precio,
             subtotal: item.quantity * item.precio
         }));
-        console.log(this.dataCarrito)
+        //console.log(this.dataCarrito)
     }
     
 
@@ -35,6 +38,7 @@ export class carrito extends LitElement {
     
     .carrito {
         display: flex;
+        margin-top: 30px;
         background-color: var(--color-grisclaro);
         outline: var(--color-blanco) solid;
         outline-width: 2px;
@@ -101,6 +105,7 @@ export class carrito extends LitElement {
     }
     
     .carritopciones .vaciarcarrito {
+        box-shadow: black 5px 5px;
         color: var(--color-blanco);
         font-size: 15px;
         border: none;
@@ -121,6 +126,7 @@ export class carrito extends LitElement {
     }
     
     .carritopciones .totalcarrito {
+        box-shadow: black 5px 5px;
         color: var(--color-blanco);
         display: flex;
         justify-content: center;
@@ -164,7 +170,7 @@ export class carrito extends LitElement {
 
     ${this.dataCarrito.map(val => html`
         <div class="carrito producto">
-            <img src="img/defaultshirt.png">
+            <img src="${val.imagen}">
             <div class="description">
                 <div class="principal">
                     <p>Nombre</p>

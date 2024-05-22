@@ -5,7 +5,7 @@ import { carrito } from "./components/carrito.js";
 import { abrigos } from "./modules/consultas.js";
 customElements.define("my-carrito", carrito)
 
-console.log(await abrigos())
+//console.log(await abrigos())
 
 
 
@@ -16,10 +16,6 @@ let btnpantalones = document.getElementById("btnPantalones")
 let btnproductos = document.getElementById("btnProductos")
 let btncarrito = document.getElementById("btnCarrito")
 
-
-window.addEventListener('DOMContentLoaded', (event) => {
-    document.getElementById("btnProductos").click();
-});
 
 
 btnCamisas.addEventListener("click", event => {
@@ -146,6 +142,7 @@ btnproductos.addEventListener("click", event => {
 
 
 btncarrito.addEventListener("click", event=> {
+
     const myproductos = document.querySelector("my-productos")
     const mycarrito = document.querySelector("my-carrito");
 

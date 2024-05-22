@@ -3,6 +3,7 @@ import { LitElement, html, css } from "lit";
 import { abrigos , camisetas, pantalones } from "../modules/consultas";
 
 export class productos extends LitElement {
+    
 
     static properties = {
         dataAbrigos: { type: Array },
@@ -11,57 +12,6 @@ export class productos extends LitElement {
         cantidadEnCarrito: { type: Number }
     }
 
-    agregarAlCarrito(event) {
-        const card = event.target.closest('.card');
-        const nombre = card.querySelector('.principal p:first-child').textContent;
-        const precio = card.querySelector('.principal p:last-child').textContent;
-        const imagen = card.querySelector('img').src;
-        const id = card.querySelector(".id").textContent
-        const producto = {
-            nombre: nombre,
-            precio: precio,
-            imagen: imagen,
-            id: id,
-
-        };
-        this.exportarACarrito(producto);
-        this.cantidadEnCarrito++;
-        const cantidadCarritoElement = document.querySelector('.cantidadcarrito');
-        if (cantidadCarritoElement) {
-            cantidadCarritoElement.textContent = this.cantidadEnCarrito;
-        } else {
-            console.error("No se encontró el elemento '.cantidadcarrito'");
-        }
-        
-    }
-
-    exportarACarrito(producto) {
-        let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-
-        // Buscar si el producto ya está en el carrito
-        const existingProductIndex = carrito.findIndex(item => item.id === producto.id);
-    
-        if (existingProductIndex !== -1) {
-            // Si el producto ya está en el carrito, incrementar su cantidad
-            carrito[existingProductIndex].quantity++;
-        } else {
-            // Si el producto no está en el carrito, añadirlo
-            carrito.push({
-                id: producto.id,
-                nombre: producto.nombre,
-                imagen: producto.imagen,
-                precio: producto.precio,
-                quantity: 1  // Inicialmente la cantidad es 1
-            });
-        }
-    
-        localStorage.setItem('carrito', JSON.stringify(carrito)); 
-        localStorage.removeItem("carrito")
-        console.log(carrito)
-        
-    }
-
-    
     constructor() {
         super()
         this.dataAbrigos = [];
@@ -89,6 +39,62 @@ export class productos extends LitElement {
             this.pantalonesDesign()
         ]);
     }
+
+    agregarAlCarrito(event) {
+        const card = event.target.closest('.card');
+        const nombre = card.querySelector('.principal p:first-child').textContent;
+        const precio = card.querySelector('.principal p:last-child').textContent;
+        const imagen = card.querySelector('img').src;
+        const id = card.querySelector(".id").textContent
+        const producto = {
+            nombre: nombre,
+            precio: precio,
+            imagen: imagen,
+            id: id,
+
+        };
+        this.exportarACarrito(producto);
+
+        // suma de cantidad en el carrito //
+        this.cantidadEnCarrito++;
+        const cantidadCarritoElement = document.querySelector('.cantidadcarrito');
+        if (cantidadCarritoElement) {
+            cantidadCarritoElement.textContent = this.cantidadEnCarrito;
+        } else {
+            console.error("No se encontró el elemento '.cantidadcarrito'");
+        }
+        
+    }
+
+    exportarACarrito(producto) {
+        let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+
+        // Buscar si el producto ya está en el carrito
+        const existingProductIndex = carrito.findIndex(item => item.id === producto.id);
+    
+        // Si el producto ya está en el carrito, incrementar su cantidad
+        if (existingProductIndex !== -1) {
+            carrito[existingProductIndex].quantity++;
+        } else {
+            // Si el producto no está en el carrito, añadirlo
+            carrito.push({
+                id: producto.id,
+                nombre: producto.nombre,
+                imagen: producto.imagen,
+                precio: producto.precio,
+                quantity: 1,  // Inicialmente la cantidad es 1
+            });
+        }
+    
+        // Almacenar el carrito actualizado en localStorage
+        localStorage.setItem('carrito', JSON.stringify(carrito)); 
+        //localStorage.getItem('carrito')
+        localStorage.removeItem("carrito")
+        console.log(carrito)
+        
+    }
+
+    // Diseño //
 
 
     static styles= css`
