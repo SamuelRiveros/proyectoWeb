@@ -9,6 +9,8 @@ export class carrito extends LitElement {
 
     constructor() {
         super();
+        console.log('a');
+        
         this.dataCarrito = []
         
         const carritoData = JSON.parse(localStorage.getItem('carrito')) || [];
@@ -19,12 +21,18 @@ export class carrito extends LitElement {
             precio: item.precio,
             subtotal: item.quantity * item.precio
         }));
-        //console.log(this.dataCarrito)
+    
     }
 
     eliminarCarrito() {
         let carritovar = localStorage.removeItem("carrito")
         console.log(carritovar)
+        this.dataCarrito = []
+    }
+
+    addCar(){
+        this.dataCarrito = JSON.parse(localStorage.getItem('carrito'))
+        console.log("Estos son los datos que estoy trayendo: ", this.dataCarrito)
     }
 
     comprarCarrito() {
@@ -186,6 +194,11 @@ export class carrito extends LitElement {
         background-color: var(--color-blanco);
     }
     `
+
+    loadComponent(){
+        this.resetComponent();
+    }
+
     render(){
 
     return html`

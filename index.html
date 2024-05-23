@@ -23,7 +23,7 @@
                     <button id="btnCamisetas"><i class='bx bxs-t-shirt' ></i> Camisetas</button>
                     <button id="btnPantalones"><img class = "pants" src="img/pants.png"> Pantalones</button>
                     <button id="btnCarrito">
-                        <i class='bx bx-cart-alt'></i> Carrito <p class="cantidadcarrito">0</p>
+                        <i class='bx bx-cart-alt'></i> Carrito <p id="idCantCarrito" class="cantidadcarrito">0</p>
                     </button> 
                 </div>
     
@@ -51,7 +51,10 @@
                 
                 <my-productos style="width: 100%; flex-wrap: wrap; display: flex; justify-content: center; gap: 2em;"></my-productos>
 
-                <my-carrito style="width: 100%; height: 100%; display: none;"></my-carrito>
+                <div id="errorLoad">
+
+                    <my-carrito style="width: 100%; height: 100%; display: none;"></my-carrito>
+                </div>
                 
 
             </div>

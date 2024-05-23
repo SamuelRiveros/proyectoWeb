@@ -1,6 +1,7 @@
 import { LitElement, html, css } from "lit";
 
 import { abrigos , camisetas, pantalones } from "../modules/consultas";
+import { carrito } from './carrito.js'
 
 export class productos extends LitElement {
     
@@ -59,17 +60,19 @@ export class productos extends LitElement {
     }
 
     exportarACarrito(producto) {
-        let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+        let dataCarro = JSON.parse(localStorage.getItem('carrito')) || [];
+        let instanceCar = new carrito()
 
         // Buscar si el producto ya está en el carrito
-        const existingProductIndex = carrito.findIndex(item => item.id === producto.id);
+        const existingProductIndex = dataCarro.findIndex(item => item.id === producto.id);
+        const carLabel = document.querySelector('#idCantCarrito')
     
         // Si el producto ya está en el carrito, incrementar su cantidad
         if (existingProductIndex !== -1) {
-            carrito[existingProductIndex].quantity++;
+            dataCarro[existingProductIndex].quantity++;
         } else {
             // Si el producto no está en el carrito, añadirlo
-            carrito.push({
+            dataCarro.push({
                 id: producto.id,
                 nombre: producto.nombre,
                 imagen: producto.imagen,
@@ -79,10 +82,14 @@ export class productos extends LitElement {
         }
     
         // Almacenar el carrito actualizado en localStorage
-        localStorage.setItem('carrito', JSON.stringify(carrito)); 
+        localStorage.setItem('carrito', JSON.stringify(dataCarro)); 
         //localStorage.getItem('carrito')
         //localStorage.removeItem("carrito")
-        console.log(carrito)
+        carLabel.innerHTML = dataCarro.length
+        console.log("VALOrrrrrr", dataCarro)
+        instanceCar.addCar()
+        document.querySelector('#errorLoad').innerHTML = ` <my-carrito style="width: 100%; height: 100%;"></my-carrito>`
+        
         
     }
 

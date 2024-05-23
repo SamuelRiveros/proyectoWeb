@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "db": "json-server src/db/clothing.json -p 5501"
+    "db": "json-server src/db/clothing.json -p 5508"
   },
   "dependencies": {
     "json-server": "^1.0.0-beta.0",
