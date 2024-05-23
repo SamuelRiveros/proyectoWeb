@@ -15,8 +15,12 @@ document.addEventListener("DOMContentLoaded", event => {
 export function pintarCantidad(){
     let divnum = document.querySelector(".cantidadcarrito")
     let storageCarrito = localStorage.getItem("carrito")
+    if (!storageCarrito || storageCarrito === 0) {
+        return
+    }
     storageCarrito = JSON.parse(storageCarrito)
     let cant = storageCarrito.length
+
     divnum.textContent = cant
 }
 

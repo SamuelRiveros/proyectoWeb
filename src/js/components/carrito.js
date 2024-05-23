@@ -27,15 +27,25 @@ export class carrito extends LitElement {
         console.log(carritovar)
     }
 
+    comprarCarrito() {
+        let carritovar = localStorage.removeItem("carrito")
+        console.log(carritovar)
+    }
+
     // Estudiar esto //
     
     async totalCarrito() {
         let carritovar = await JSON.parse(localStorage.getItem("carrito"))
         let counter = 0
+        if (!carritovar || carritovar.length === 0 ) {
+            this.shadowRoot.querySelector(".total").textContent = "0";
+            return;
+        }
         for(let element of carritovar) {
             counter += Number(element.precio) * Number(element.quantity)
             console.log(element)
         };
+
         this.shadowRoot.querySelector(".total").textContent = `${counter}`
     }
 
@@ -238,7 +248,7 @@ export class carrito extends LitElement {
             </p>
 
             <div class="compra">
-                <button class="comprar">
+                <button class="comprar" @click=${this.comprarCarrito}>
                     <p>Comprar Ahora</p>
             </button>
             </div>  

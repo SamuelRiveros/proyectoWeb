@@ -54,13 +54,7 @@ export class productos extends LitElement {
         this.exportarACarrito(producto);
 
         // suma de cantidad en el carrito //
-        this.cantidadEnCarrito++;
-        const cantidadCarritoElement = document.querySelector('.cantidadcarrito');
-        if (cantidadCarritoElement) {
-            cantidadCarritoElement.textContent = this.cantidadEnCarrito;
-        } else {
-            console.error("No se encontró el elemento '.cantidadcarrito'");
-        }
+        
         
     }
 
