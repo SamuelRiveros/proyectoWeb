@@ -9,7 +9,6 @@ export class carrito extends LitElement {
 
     constructor() {
         super();
-        console.log('a');
         
         this.dataCarrito = []
         
@@ -33,11 +32,6 @@ export class carrito extends LitElement {
     addCar(){
         this.dataCarrito = JSON.parse(localStorage.getItem('carrito'))
         console.log("Estos son los datos que estoy trayendo: ", this.dataCarrito)
-    }
-
-    comprarCarrito() {
-        let carritovar = localStorage.removeItem("carrito")
-        console.log(carritovar)
     }
 
     // Estudiar esto //
@@ -125,7 +119,6 @@ export class carrito extends LitElement {
 
 
     .carritopciones {
-        position: absolute;
         align-items: center;
         color: var(--color-blanco);
         display: flex;
@@ -192,6 +185,157 @@ export class carrito extends LitElement {
         color: var(--color-negro);
         cursor: pointer;
         background-color: var(--color-blanco);
+    }
+
+    @media (width<=700px) {
+
+        .selector {
+            display: none;
+        }
+    
+        .cardzone {
+            border-radius: 20px;
+            padding: 5px;
+        }
+    
+        .card {
+            width: 45%;
+            max-height: 45%;
+        }
+    
+        .card img {
+            object-fit: contain;
+            max-height: 160px;
+            padding: 0px;
+        }
+    
+        .card .description {
+            width: auto;
+            height: max-content;
+            padding: 0.3em;
+        }
+    
+        .card .description .principal p, .agregar {
+            font-size: 10px;
+        }
+    
+    
+    
+    
+        .carrito {
+            position: relative;
+            left: 270px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: var(--color-grisclaro);
+            outline: var(--color-blanco) solid;
+            outline-width: 2px;
+            width: 300px;
+    
+            border-radius: 10px;
+            box-shadow: inset 0 0 25px #000;
+        }
+    
+        .carrito img {
+            width: 25%;
+            max-height: 245px;
+            object-fit: contain;
+            padding: 3px;
+            -webkit-user-drag: none;
+        }
+    
+        .carrito .description {
+    
+            width: 80%;
+            display: flex;
+            gap: 10px;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+    
+        .carrito .description .eliminar {
+            color: red;
+        }
+    
+        .carrito .description p {
+            font-size: 1vh;
+            color: var(--color-blanco);
+        }
+    
+        .carrito .principal,.cantidad,.precio,.subtotal {
+            text-align: center;
+        }
+    
+        .vaciarcarrito p, .totalcarrito p{
+            font-size: 1.5vh;
+        }
+
+        .carritopciones {
+            align-items: center;
+            color: var(--color-blanco);
+            display: flex;
+            flex-direction: row;
+            bottom: 100px;
+            width: 850px;
+            justify-content: center;
+    
+        }
+        
+        .carritopciones .vaciarcarrito {
+            box-shadow: black 5px 5px;
+            color: var(--color-blanco);
+            font-size: 15px;
+            border: none;
+            background-color: var(--color-gris);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+            width: 10em;
+            height: 3em;
+            transition: all 0.5s;
+        }
+        
+        .vaciarcarrito:hover {
+            color: var(--color-negro);
+            cursor: pointer;
+            background-color: var(--color-blanco);
+        }
+        
+        .carritopciones .totalcarrito {
+            box-shadow: black 5px 5px;
+            color: var(--color-blanco);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+            height: 90px;
+            width: 200px;
+            color: var(--color-blanco);
+            background-color: var(--color-gris);
+            flex-direction: column;
+        }
+        
+        .carritopciones .compra {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width:70%;
+            height: 30%;
+        }
+        .carritopciones .comprar {
+            color: var(--color-blanco);
+            background-color: var(--color-grisclaro);
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 10px;
+            transition: all 0.5s;
+        }
+
+
     }
     `
 
@@ -261,7 +405,7 @@ export class carrito extends LitElement {
             </p>
 
             <div class="compra">
-                <button class="comprar" @click=${this.comprarCarrito}>
+                <button class="comprar" @click=${this.eliminarCarrito}>
                     <p>Comprar Ahora</p>
             </button>
             </div>  

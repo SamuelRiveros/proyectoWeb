@@ -54,6 +54,8 @@ export class productos extends LitElement {
         };
         this.exportarACarrito(producto);
 
+
+
         // suma de cantidad en el carrito //
         
         
@@ -158,6 +160,102 @@ export class productos extends LitElement {
         background-color: var(--color-grisclaro);
         box-shadow: 0 0 20px #000;
         transition: 0.3s;
+    }
+
+    @media (width<=700px) {
+    
+        .menuopen {
+            color: var(--color-blanco);
+            background: none;
+            display: flex;
+            border: none;
+            font-size: 3em;
+            padding-right: 1vw;
+        }
+    
+        .visible {
+            color: var(--color-blanco);
+            background-color: #000000b4;
+            width: 100%;
+            height: 30%;
+            top:17vh;
+            position: fixed;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 1em;
+            font-size: 2vh;
+        }
+        
+    
+        main {
+            display: flex;
+            flex-direction: column;
+        }
+    
+        .leftpart {
+            height: 5%;
+            width: 100vw;
+        }
+        .leftpart h1 {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            font-size: 30px;
+        }
+    
+        .credits {
+            display: flex;
+            margin-top: 0em;
+        }
+    
+        .credits p {
+            font-size: 15px;
+        }
+    
+        .mainpart {
+            outline: none;
+            border: var(--color-blanco) solid;
+            border-width: 1px;
+            width: 100vw;
+            height: 87.5vh;
+            display: flex;
+            margin-top: 3vh;
+            padding: 1em;
+            gap: 1em;
+        }
+    
+        .mainpart h1 {
+            padding: 1vw;
+            font-size: 20px;
+        }
+    
+        .cardzone {
+            border-radius: 20px;
+            padding: 5px;
+        }
+    
+        .card {
+            width: 45%;
+            max-height: 45%;
+        }
+    
+        .card img {
+            object-fit: contain;
+            max-height: 160px;
+            padding: 0px;
+        }
+    
+        .card .description {
+            width: auto;
+            height: max-content;
+            padding: 0.3em;
+        }
+    
+        .card .description .principal p, .agregar {
+            font-size: 10px;
+        }
     }
     `
     render(){

@@ -484,7 +484,7 @@ main {
     }
 
     .carrito .description {
-        padding-top: 1vh;
+
         width: 80%;
         display: flex;
         gap: 10px;
@@ -509,5 +509,7 @@ main {
     .vaciarcarrito p, .totalcarrito p{
         font-size: 1.5vh;
     }
+
+    
 
 }

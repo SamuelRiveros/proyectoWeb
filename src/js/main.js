@@ -10,7 +10,12 @@ customElements.define("my-carrito", carrito)
 
 document.addEventListener("DOMContentLoaded", event => {
     pintarCantidad()
+
+    const menuOpenButton = document.querySelector(".menuopen");
+    menuOpenButton.addEventListener("click", change);
+
 } )
+
 
 export function pintarCantidad(){
     let divnum = document.querySelector(".cantidadcarrito")
@@ -185,11 +190,10 @@ btncarrito.addEventListener("click", event=> {
 
 /* Funcionalidad del menu desplegable */
 
-function change() {
+export function change() {
     var btn = document.getElementById("menucel");
     btn.classList.toggle("visible");
 }
-
 
 function cerrarMenu() {
     var btn = document.getElementById("menucel");
