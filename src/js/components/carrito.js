@@ -14,6 +14,7 @@ export class carrito extends LitElement {
         
         const carritoData = JSON.parse(localStorage.getItem('carrito')) || [];
         this.dataCarrito = carritoData.map(item => ({
+            id: item.id,
             imagen: item.imagen,
             nombre: item.nombre,
             cantidad: item.quantity,
@@ -27,6 +28,15 @@ export class carrito extends LitElement {
         let carritovar = localStorage.removeItem("carrito")
         console.log(carritovar)
         this.dataCarrito = []
+    }
+
+    eliminarindividuo(id) {
+        // Filtra el carrito para eliminar el producto con el ID proporcionado
+        this.dataCarrito = this.dataCarrito.filter(item => item.id !== id);
+        // Actualiza el localStorage
+        localStorage.setItem('carrito', JSON.stringify(this.dataCarrito));
+        // Fuerza una actualización del componente
+        this.requestUpdate();
     }
 
     addCar(){
@@ -373,7 +383,7 @@ export class carrito extends LitElement {
                     <p>${val.subtotal}</p>
                 </div>
 
-                <div class="eliminar">
+                <div class="eliminar" @click="${() => this.eliminarindividuo(val.id)}">
                     <i class='bx bx-x'></i>
                 </div>
 

@@ -375,6 +375,7 @@ main {
     }
 
     .visible {
+        z-index: 2;
         color: var(--color-blanco);
         background-color: #000000b4;
         width: 100%;
